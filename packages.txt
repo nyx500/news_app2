@@ -1,0 +1,12 @@
+python3-dev
+build-essential
+libxml2-dev
+libxslt1-dev
+libjpeg-dev
+zlib1g-dev
+libpng-dev
+python3-tk
+python3-lxml
+libc6-dev
+libffi-dev
+curl

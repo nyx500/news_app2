@@ -1,0 +1,16 @@
+streamlit
+joblib
+newspaper3k
+altair
+matplotlib
+tqdm
+lxml_html_clean
+nrclex
+pandas
+textstat
+seaborn
+lime
+scikit-learn
+wordcloud
+spacy
+spacy_streamlit
