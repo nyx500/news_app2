@@ -39,6 +39,7 @@ def load_fasttext_model():
     url = "https://drive.google.com/uc?id=1uO8GwNHb4IhqR2RNZqp1K-FdmX6FPnDQ"
     local_path =  "/tmp/fasttext_model.bin"
     gdown.download(url, local_path, quiet=False)
+    st.write(f"Downloaded fastText model! Embedding size; {}")
     return fasttext.load_model(local_path)
 
 
@@ -51,7 +52,6 @@ feature_extractor = BasicFeatureExtractor()
 with st.spinner("Loading fake news detection model..."):
     pipeline = load_pipeline()
     fasttext_model = load_fasttext_model()
-    st.write(f"Downloaded fastText model! Embedding size: {fasttext_model.get_dimension()}")
 
 # Set app title
 st.title("Fake News Detection App")
