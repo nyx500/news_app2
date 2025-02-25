@@ -62,20 +62,14 @@ class BasicFeatureExtractor:
                 excl_point_freq (float): the normalized exclamation point frequency for the text.
                 Normalized by num of word tokens to handle varying text length datasets
         """
-        try:
-            # Count the number of exclamation points in the text
-            exclamation_count = text.count('!')
-            print(f"Exclamation point count: {exclamation_count}")
-            # Tokenize text for calculating text length
-            word_tokens = word_tokenize(text)
-            # Get text length in number of word tokens
-            text_length = len(word_tokens)
-            print(f"Number of word tokens: {text_length}")
-            # Normalize the exclamation point frequency
-            return exclamation_count / text_length if text_length > 0 else 0 # Handle division-by-zero errs
-        except Exception as e:
-            print(f"Could not extract exclamation point frequency: {e}")
-            return 0
+        # Count the number of exclamation points in the text
+        exclamation_count = text.count('!')
+        # Tokenize text for calculating text length
+        word_tokens = word_tokenize(text)
+        # Get text length in number of word tokens
+        text_length = len(word_tokens)
+        # Normalize the exclamation point frequency
+        return exclamation_count / text_length if text_length > 0 else 0 # Handle division-by-zero errs
     
 
 
