@@ -1,6 +1,8 @@
 streamlit
 joblib
 newspaper3k
+gdown
+fasttext
 altair
 matplotlib
 tqdm
