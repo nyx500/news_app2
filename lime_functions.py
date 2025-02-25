@@ -73,6 +73,7 @@ class BasicFeatureExtractor:
             # Normalize the exclamation point frequency
             return exclamation_count / text_length if text_length > 0 else 0 # Handle division-by-zero errs
         except Exception as e:
+            print(f"Could not extract exclamation point frequency: {e}")
             return 0
     
 
