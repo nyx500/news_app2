@@ -53,7 +53,6 @@ with st.spinner("Loading fake news detection model..."):
     fasttext_model = load_fasttext_model()
     # Gets the word embedding size
     embedding_size = fasttext_model.get_dimension()
-    st.write(f"Successs: FastText model loaded! Word embedding size: {embedding_size}")
 
 # Set app title
 st.title("Fake News Detection App")
