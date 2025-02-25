@@ -41,18 +41,26 @@ def load_fasttext_model():
     gdown.download(url, local_path, quiet=False)
     return fasttext.load_model(local_path)
 
-
+@st.cache_resource 
 def load_pipeline():
     return joblib.load("iteration2_lime_model.pkl")
+
+@st.cache_resource 
+def load_pipeline2():
+    return joblib.load("all_four_combined_dataset_calibrated_pac_pipeline_for_fasttext.pkl")
 
 # Instantiates the text feature extractor
 feature_extractor = BasicFeatureExtractor()
 
 with st.spinner("Loading fake news detection model..."):
     pipeline = load_pipeline()
+
+with st.spinner("Loading second fake news detection model..."):
+    second_pipeline = load_pipeline2()
+
+with st.spinner("Loading fastText embeddings model..."):
     fasttext_model = load_fasttext_model()
-    # Gets the word embedding size
-    embedding_size = fasttext_model.get_dimension()
+
 
 # Set app title
 st.title("Fake News Detection App")
