@@ -19,7 +19,7 @@ from lime_functions import BasicFeatureExtractor, explainPredictionWithLIME, dis
 
 
 FEATURE_EXPLANATIONS = {
-    "exclamationd_point_frequency": "Normalized exclamation marks frequency counts. Higher raw scores may indicate more emotional or sensational writing, more associated with fake news in the training data.",
+    "exclamation_point_frequency": "Normalized exclamation marks frequency counts. Higher raw scores may indicate more emotional or sensational writing, more associated with fake news in the training data.",
     "third_person_pronoun_frequency": "Normalized frequency of third-person pronouns (he, she, they, etc.). Higher raw scores may indicate narrative and story-telling style. More positive scores associated with fake news than real news in training data.",
     "noun_to_verb_ratio": "Ratio of nouns to verbs. Higher values suggest more descriptive rather than action-focused writing. Higher scores (more nouns to verbs) associated more with real news than fake news in training data. Negative values more associated with fake news than real news.",
     "cardinal_named_entity_frequency": "Normalized frequency of numbers and quantities. Higher scores indicate higher level of specific details, more associated with real news.",
