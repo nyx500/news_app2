@@ -51,7 +51,7 @@ feature_extractor = BasicFeatureExtractor()
 with st.spinner("Loading fake news detection model..."):
     pipeline = load_pipeline()
     fasttext_model = load_fasttext_model()
-    st.success(f"Downloaded fastText model! Embedding size: {fasttext_model.get_dimension()}")
+    st.write(f"Downloaded fastText model! Embedding size: {fasttext_model.get_dimension()}")
 
 # Set app title
 st.title("Fake News Detection App")
