@@ -7,7 +7,6 @@ import pandas as pd
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from nltk import pos_tag
 nltk.download('punkt')
 nltk.download('punkt_tab')
 # nltk.download('averaged_perceptron_tagger')
@@ -68,6 +67,7 @@ class BasicFeatureExtractor:
             exclamation_count = text.count('!')
             # Tokenize text for calculating text length
             word_tokens = word_tokenize(text)
+            print(word_tokens)
             # Get text length in number of word tokens
             text_length = len(word_tokens)
             # Normalize the exclamation point frequency
