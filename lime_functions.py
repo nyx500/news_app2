@@ -198,6 +198,9 @@ class BasicFeatureExtractor:
             Output:
                 float: POSITIVE emotion score.
         """
+        # Convert text to lowercase
+        text = text.lower()
+
         # Create an NRC Emotion Lexicon object
         emotion_obj = NRCLex(text)
         
@@ -215,7 +218,8 @@ class BasicFeatureExtractor:
             Output:
                 float: TRUST emotion score.
         """
-        
+        text = text.lower()
+
         # Create an NRC Emotion Lexicon object
         emotion_obj = NRCLex(text)
         
@@ -245,6 +249,8 @@ class BasicFeatureExtractor:
         Output:
             float: the number of difficult words score for the text.
         """
+        # Convert text to lowercase
+        text = text.lower()
         return textstat.difficult_words(text)
     
 
