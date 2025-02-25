@@ -45,12 +45,14 @@ def load_fasttext_model():
 def load_pipeline():
     return joblib.load("iteration2_lime_model.pkl")
 
-# Instantiate text feature extractor
+# Instantiates the text feature extractor
 feature_extractor = BasicFeatureExtractor()
 
 with st.spinner("Loading fake news detection model..."):
     pipeline = load_pipeline()
     fasttext_model = load_fasttext_model()
+    # Gets the word embedding size
+    embedding_size = fasttext_model.get_dimension()
 
 # Set app title
 st.title("Fake News Detection App")
