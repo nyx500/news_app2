@@ -11,13 +11,15 @@ from newspaper import Article
 import matplotlib.pyplot as plt
 # For model loading
 import joblib
+import gdown
+import fasttext
 
 # Import custom functions from lime_functions.py for generating LIME explanations
 from lime_functions import BasicFeatureExtractor, explainPredictionWithLIME, displayAnalysisResults
 
 
 FEATURE_EXPLANATIONS = {
-    "exclamation_point_frequency": "Normalized exclamation marks frequency counts. Higher raw scores may indicate more emotional or sensational writing, more associated with fake news in the training data.",
+    "exclamationd_point_frequency": "Normalized exclamation marks frequency counts. Higher raw scores may indicate more emotional or sensational writing, more associated with fake news in the training data.",
     "third_person_pronoun_frequency": "Normalized frequency of third-person pronouns (he, she, they, etc.). Higher raw scores may indicate narrative and story-telling style. More positive scores associated with fake news than real news in training data.",
     "noun_to_verb_ratio": "Ratio of nouns to verbs. Higher values suggest more descriptive rather than action-focused writing. Higher scores (more nouns to verbs) associated more with real news than fake news in training data. Negative values more associated with fake news than real news.",
     "cardinal_named_entity_frequency": "Normalized frequency of numbers and quantities. Higher scores indicate higher level of specific details, more associated with real news.",
@@ -32,6 +34,12 @@ FEATURE_EXPLANATIONS = {
 
 # Load the trained model pipeline
 @st.cache_resource 
+def load_fasttext_model():
+    url = "https://drive.google.com/uc?id=1uO8GwNHb4IhqR2RNZqp1K-FdmX6FPnDQ"
+    local_path =  "/tmp/fasttext_model.bin"
+    gdown.download(url, local_path, quiet=False)
+    return fasttext.load_model(local_path)
+
 
 def load_pipeline():
     return joblib.load("iteration2_lime_model.pkl")
@@ -41,6 +49,7 @@ feature_extractor = BasicFeatureExtractor()
 
 with st.spinner("Loading fake news detection model..."):
     pipeline = load_pipeline()
+    fasttext_model = load_fasttext_model()
 
 # Set app title
 st.title("Fake News Detection App")
