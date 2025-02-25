@@ -38,6 +38,7 @@ def load_fasttext_model():
     url = "https://drive.google.com/uc?id=1uO8GwNHb4IhqR2RNZqp1K-FdmX6FPnDQ"
     local_path =  "/tmp/fasttext_model.bin"
     gdown.download(url, local_path, quiet=False)
+    st.write("Downloaded fastText model!")
     return fasttext.load_model(local_path)
 
 
